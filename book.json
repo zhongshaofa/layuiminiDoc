@@ -1,0 +1,125 @@
+{
+  "title": "LAYUI MINI开发文档",
+  "author": "zhongshaofa",
+  "description": "LAYUI MINI详细开发文档教程",
+  "language": "zh-hans",
+  "structure": {
+    "readme": "README.md"
+  },
+  "plugins": [
+    "anchor-nav-x",
+    "tbfed-pagefooter",
+    "search-plus",
+    "popup",
+    "highlight",
+    "image-captions",
+    "styled-blockquotes",
+    "expandable-chapters-interactive",
+    "hide-element",
+    "code",
+    "insert-logo",
+    "custom-favicon",
+    "github",
+    "github-buttons",
+    "donate",
+    "baidu-tongji"
+  ],
+  "sharing": {
+    "douban": false,
+    "facebook": false,
+    "google": false,
+    "hatenaBookmark": false,
+    "instapaper": false,
+    "line": false,
+    "linkedin": false,
+    "messenger": false,
+    "pocket": false,
+    "qq": false,
+    "qzone": false,
+    "stumbleupon": false,
+    "twitter": false,
+    "viber": false,
+    "vk": false,
+    "weibo": false,
+    "whatsapp": false,
+    "all": [
+      "google", "facebook", "weibo", "twitter",
+      "qq", "qzone", "linkedin", "pocket"
+    ]
+  },
+  "pluginsConfig": {
+    "favicon": "images/favicon.ico",
+    "github": {
+      "url": "https://github.com/zhongshaofa/layuimini"
+    },
+    "insert-logo": {
+      "url": "https://layuimini.oss-cn-shenzhen.aliyuncs.com/logo_2.png",
+      "style": "background: none; max-height: 60px; min-height: 60px"
+    },
+    "hide-element": {
+      "elements": [".gitbook-link"]
+    },
+    "anchor-navigation-ex": {
+      "multipleH1": false,
+      "showLevel": false,
+      "float": {
+        "tocLevel1Icon": "fa fa-hand-o-right",
+        "tocLevel2Icon": "fa fa-hand-o-right",
+        "tocLevel3Icon": "fa fa-hand-o-right"
+      },
+      "toolTipMode": "click"
+    },
+    "anchor-nav-x": {
+      "associatedWithSummary": true,
+      "float": {
+        "level1Icon": "",
+        "level2Icon": "",
+        "level3Icon": "",
+        "showLevelIcon": false
+      },
+      "mode": "float",
+      "multipleH1": true,
+      "pageTop": {
+        "level1Icon": "",
+        "level2Icon": "",
+        "level3Icon": "",
+        "showLevelIcon": false
+      },
+      "printLog": false,
+      "showLevel": true
+    },
+    "tbfed-pagefooter": {
+      "copyright": "&copy zhongshaofa",
+      "modify_label": "文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "github-buttons": {
+      "buttons": [
+        {
+          "user": "zhongshaofa",
+          "repo": "layuimini",
+          "type": "fork",
+          "count": true,
+          "size": "small"
+        },
+        {
+          "user": "zhongshaofa",
+          "repo": "layuimini",
+          "type": "star",
+          "count": true,
+          "size": "small"
+        }
+      ]
+    },
+    "donate": {
+      "button": "打赏",
+      "alipayText": "支付宝打赏",
+      "wechatText": "微信打赏",
+      "alipay": "https://layuimini.oss-cn-shenzhen.aliyuncs.com/ali_pay.png",
+      "wechat": "https://layuimini.oss-cn-shenzhen.aliyuncs.com/wechat_pay.png"
+    },
+    "baidu-tongji": {
+      "token": "5637e63b6bd6247c36cf245293f121f9"
+    }
+  }
+}
