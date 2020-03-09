@@ -6,13 +6,16 @@
 * urlHashLocation：是否开启URL地址hash定位，默认开启。`关闭后，刷新页面后将定位不到当前页，只显示主页`
 * urlSuffixDefault：是否开启URL后缀，默认开启。
 * BgColorDefault：系统默认皮肤，从0开始。
-   ``` js
+
+> 示例说明
+
+```js
        var config = {
              urlHashLocation: true,   // URL地址hash定位
              urlSuffixDefault: true, // URL后缀
              BgColorDefault: 0       // 默认皮肤（0开始）
           };
-    ```
+```
 
 # 后台模板初始化
 
@@ -24,8 +27,9 @@
 
  * 初始化api地址返回的参数可以参考`api目录下的init.json文件`或者查看使用说明的第二点的参数说明
 
- ``` js
- 
+> 示例说明
+
+```js
     layui.use(['element', 'layer', 'layuimini'], function () {
         var $ = layui.jquery,
             element = layui.element,
@@ -34,20 +38,22 @@
         layuimini.init('api/init.json');
     });
     
- ```
+```
  
 # 初始化api地址返回的参数说明
  
  * `clearInfo`是服务端清理缓存信息(clearInfo.clearUrl：服务端清理缓存接口地址，为空则不请求;)
  
-  ``` json
+> 示例说明
+
+```json
   返回参数对应的事例(code：0，清除缓存失败；code：1，表示清除缓存成功；)
   
   {
     "code": 1,
     "msg": "清除服务端缓存成功"
   }
-   ```
+```
  
  * `homeInfo` 是首页信息
  
@@ -57,7 +63,9 @@
  
  * `menuModule id`必须唯一，例如 menuInfo.currency、menuInfo.other对应的currency和other就是模块id，他们的值必须唯一，否则模块切换会有冲突。
  
-  ``` json
+> 示例说明
+
+```json
 {
   "homeInfo": {
     "title": "首页",
@@ -88,16 +96,17 @@
     }
   }
 }
-  ```
+```
   
 # 在页面中打开新页面
    
   * 如需在页面中弹出新的Tab窗口，请参考下方代码。
   * 参数说明（data-iframe-tab：页面链接，data-title：标题，data-icon：图标）
-``` html
-     
-    <a href="javascript:;" data-content-href="page/user-setting.html" data-title="基本资料">基本资料</a>
+  
+> 示例说明
 
+```html
+    <a href="javascript:;" data-content-href="page/user-setting.html" data-title="基本资料">基本资料</a>
  ```
 
 # 在js中跳转页面
@@ -105,7 +114,10 @@
   * 如需在js跳转页面，请参考下方代码。（备注：需要引入layuimini.js文件）
   * 调用方法：`layuimini.hash(href);`
   * 示例在`user-setting.html`页面中
-``` js
+  
+> 示例说明
+
+```js
     layui.use(['form','layuimini'], function () {
         var form = layui.form,
             layer = layui.layer,
@@ -128,14 +140,17 @@
         });
 
     });
- ```
+```
 
 # 在js中局部刷新页面
 
   * 如需在js局部刷新页面，请参考下方代码。（备注：需要引入layuimini.js文件）
   * 调用方法：`layuimini.refresh();`
   * 示例在`user-password.html`页面中
-``` js
+  
+> 示例说明
+
+```js
     layui.use(['form','layuimini'], function () {
         var form = layui.form,
             layer = layui.layer,
@@ -158,12 +173,15 @@
         });
 
     });
- ```
+```
   
 # 后台主题方案配色
   
  * 系统已内置12套主题配色，如果需要自定义皮肤配色，请在`layuimini.bgColorConfig`方法内按相同格式添加。
- ``` js
+ 
+> 示例说明
+
+```js
     var bgColorConfig = [
         {
             headerRight: '#1aa094',
@@ -182,7 +200,7 @@
             menuLeftHover: '#3b3f4b',
         }
     ];
-  ```
+```
  
 # 常见问题
   * IIS环境下请配置支持解析`.json`格式文件

@@ -33,8 +33,8 @@
 | maxTabNum| 最大的tab打开数量 | int | 20 | 防止打开太多的tab窗口导致页面卡死 |
 
 > 示例说明
- ``` js
- 
+
+```js
         var options = {
             iniUrl: "api/init.json",    // 初始化接口
             clearUrl: "api/clear.json", // 缓存清理接口
@@ -46,21 +46,18 @@
             pageAnim: true,             // iframe窗口动画
         };
         miniAdmin.render(options);
-    
- ```
+```
 
-#后台模板初始化
-
+# 后台模板初始化
+  
  * 在`index.html`文件内进行初始化
-
  * 引入`lay-config.js`文件，请根据实际情况修改里面扩展的路径。
-
  * 引入miniAdmin模块，根据需要传入初始化参数，执行`miniAdmin.render(options);` 方法。
-
  * 初始化api接口返回的参数可以参考`api目录下的init.json文件`或者查看使用说明的第二点的参数说明
 
- ``` js
- 
+> 示例说明
+
+```js
     layui.use(['jquery', 'layer', 'miniAdmin'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
@@ -79,17 +76,17 @@
         layuimini.init('api/init.json');
     });
     
- ```
+```
  
-#初始化api接口返回的参数说明
+# 初始化api接口返回的参数说明
  
- * `homeInfo` 是首页信息
+* `homeInfo` 是首页信息
+* `logoInfo` 是logo信息
+* `menuInfo` 是头部模块和左侧菜单对应的信息
  
- * `logoInfo` 是logo信息
- 
- * `menuInfo` 是头部模块和左侧菜单对应的信息
- 
-  ``` json
+> 示例说明
+
+```json
 {
   "homeInfo": {
     "title": "首页",
@@ -126,24 +123,27 @@
 }
   ```
   
-#缓存清理接口返回的参数说明
+# 缓存清理接口返回的参数说明
  
- >   返回参数对应的事例(code：0，清除缓存失败；code：1，表示清除缓存成功；)
-``` json
+>   返回参数对应的事例(code：0，清除缓存失败；code：1，表示清除缓存成功；)
+
+```json
    {
      "code": 1,
      "msg": "清除服务端缓存成功"
    }
 ```
   
-#在页面中弹出新的Tab窗口
+# 在页面中弹出新的Tab窗口
    
   * 如需在页面中弹出新的Tab窗口，请参考下方代码。（备注：需要引入miniTab.js文件）
   * 参数说明（layuimini-content-href=：页面链接，data-title：标题）
   * 调用方法进行监听：`miniTab.listen();`
   * 示例在`page/welcome-1.html`页面中有
-``` html
-     
+  
+> 示例说明
+
+```js
     <a href="javascript:;" layuimini-content-href="page/user-setting.html" data-title="基本资料" >基本资料</a>
     
     layui.use(['form','miniTab'], function () {
@@ -156,12 +156,15 @@
     });
  ```
 
-#在iframe页面中关闭当前Tab窗口
+# 在iframe页面中关闭当前Tab窗口
    
   * 如需在iframe页面中，请参考下方代码。（备注：miniTab.js文件）
   * 调用方法：`miniTab.deleteCurrentByIframe();`
   * 示例在`user-password.html`,`user-setting.html`页面中都有
-``` js
+
+> 示例说明
+
+```js
     layui.use(['form','miniTab'], function () {
         var form = layui.form,
             layer = layui.layer,
@@ -179,12 +182,15 @@
         });
 
     });
- ```
+```
   
-#后台主题方案配色
+# 后台主题方案配色
   
  * 系统已内置12套主题配色，如果需要自定义皮肤配色，请在`miniTheme.bgColorConfig`方法内按相同格式添加。
- ``` js
+ 
+> 示例说明
+
+```js
     var bgColorConfig = [
                 {
                     headerRight: '#1aa094',
@@ -205,11 +211,11 @@
                     tabActive: '#23262e',
                 }
     ];
-  ```
+```
  
-#常见问题
+# 常见问题
   * <font color=red>修改js后刷新页面未生效，请尝试清除浏览器缓存。</font>
   * IIS环境下请配置支持解析`.json`格式文件
   
-#备注信息
+# 备注信息
   * 菜单栏建议最多四级菜单，四级以后菜单显示并没有那么友好。

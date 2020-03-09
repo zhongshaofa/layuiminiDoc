@@ -33,8 +33,8 @@
 | loadingTime| 初始化加载时间 | 0 | 0 | 建议0-2之间 |
 
 > 示例说明
- ``` js
- 
+
+```js
         var options = {
             iniUrl: "api/init.json",    // 初始化接口
             clearUrl: "api/clear.json", // 缓存清理接口
@@ -44,9 +44,8 @@
             menuChildOpen: false,       // 是否默认展开菜单
             loadingTime: 0,             // 初始化加载时间
         };
-        miniAdmin.render(options);
-    
- ```
+        miniAdmin.render(options);  
+```
 
 # 后台模板初始化
 
@@ -58,8 +57,9 @@
 
  * 初始化api接口返回的参数可以参考`api目录下的init.json文件`或者查看使用说明的第二点的参数说明
 
- ``` js
- 
+> 示例说明
+
+```js
     layui.use(['jquery', 'layer', 'miniAdmin'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
@@ -78,7 +78,7 @@
         layuimini.init('api/init.json');
     });
     
- ```
+```
  
 # 初始化api接口返回的参数说明
  
@@ -88,7 +88,9 @@
  
  * `menuInfo` 是头部模块和左侧菜单对应的信息
  
-  ``` json
+> 示例说明
+
+```json
 {
   "homeInfo": {
     "title": "首页",
@@ -123,12 +125,13 @@
     }
   ]
 }
-  ```
+```
   
 # 缓存清理接口返回的参数说明
  
  >   返回参数对应的事例(code：0，清除缓存失败；code：1，表示清除缓存成功；)
-``` json
+ 
+```json
    {
      "code": 1,
      "msg": "清除服务端缓存成功"
@@ -142,17 +145,20 @@
   * 调用方法进行监听：`miniPage.listen();`(备注：框架初始化时已经进行监听，一般情况下不需要再次操作)
   * 示例在`page/welcome-1.html`页面中有
 
-``` html
+```html
      
     <a href="javascript:;" layuimini-content-href="page/user-setting.html" data-title="基本资料" >基本资料</a>
     
- ```
+```
 
 # 在内容页面中返回主页
    
   * 方法一：添加class样式layuimini-back-home`<a lay-href="" href="javascript:;" class="layuimini-back-home">首页</a>`
   * 方法二：`miniPage.hashHome();`，示例在`user-password.html`,`user-setting.html`页面中都有
-``` js
+  
+> 示例说明
+
+```js
     layui.use(['form','miniPage'], function () {
         var form = layui.form,
             layer = layui.layer,
@@ -175,12 +181,15 @@
         });
 
     });
- ```
+```
   
 # 后台主题方案配色
   
  * 系统已内置12套主题配色，如果需要自定义皮肤配色，请在`miniTheme.bgColorConfig`方法内按相同格式添加。
- ``` js
+ 
+> 示例说明
+
+```js
     var bgColorConfig = [
                 {
                     headerRight: '#1aa094',
@@ -201,7 +210,7 @@
                     tabActive: '#23262e',
                 }
     ];
-  ```
+```
  
 # 常见问题
   * <font color=red>修改js后刷新页面未生效，请尝试清除浏览器缓存。</font>
