@@ -6,6 +6,7 @@
   * [PHP示例(Laravel)](init/laravel.md)
   * [PHP示例(ThinkPHP)](init/thinkphp.md)
   * [Golang示例(beego)](init/golang.md)
+  * [java示例(spring)](init/java.md)
 * [使用说明(V2版)]()
   * [iframe版](iframe-v2.md)
     * [更新说明](iframe-v2.md#更新说明)
