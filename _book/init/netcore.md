@@ -1,6 +1,63 @@
 # ASP.NET CORE WebApi接口示例
 
-> 创建ASP.NET CORE API项目数据库访问自行百度,数据库结构参考文档就行，结构都类似，
+##### 示例提供来源：A0~海阔天空 
+
+> 创建ASP.NET CORE API项目数据库访问自行百度,数据库结构参考文档就行，结构都类似。
+
+> 完整的后端示例地址：<https://github.com/chenyi2006520/SystemMenu>
+
+>数据对象如下：
+
+```C#
+   /// <summary>
+    /// 菜单表
+    /// </summary>
+    [Table("bee_system_menu")]
+    public class SystemMenuEntity
+    {
+        /// <summary>
+        /// ID
+        /// </summary>
+        [Key]
+        [Required]
+        public long id { get; set; }
+
+        /// <summary>
+        /// 父级ID
+        /// </summary>
+        [Required]
+        public long pid { get; set; }
+        /// <summary>
+        /// 名称
+        /// </summary>
+        [Required]
+        public string title { get; set; }
+
+        /// <summary>
+        /// 菜单图标
+        /// </summary>
+        public string icon { get; set; }
+
+        /// <summary>
+        /// 链接
+        /// </summary>
+        public string href { get; set; }
+
+        /// <summary>
+        /// 链接
+        /// </summary>
+        public string target { get; set; }
+        /// <summary>
+        /// 序号
+        /// </summary>
+        public int sort { get; set; }
+
+        /// <summary>
+        /// 是否菜单
+        /// </summary>
+        public bool status { get; set; }
+    }
+```
 
 ```C#
    /// <summary>
@@ -57,7 +114,7 @@
         /// 节点名称
         /// </summary>
         public string Title { get; set; }
-          
+
         /// <summary>
         /// 节点地址
         /// </summary>
@@ -101,19 +158,18 @@
 
 ```C#
     /// <summary>
-    /// 获取权限的树结构
+    /// 递归处理数据
     /// </summary>
-    /// <param name="permissionList">数据库返回的数组对象</param>
-    /// <param name="rootNode">rootNode</param>
-    public static void GetTreeNodeListByNoLockedDTOArray(SystemMenu[] permissionList, SystemMenu rootNode)
+    /// <param name="systemMenuEntities"></param>
+    /// <param name="rootNode"></param>
+    public static void GetTreeNodeListByNoLockedDTOArray(SystemMenuEntity[] systemMenuEntities, SystemMenu rootNode)
     {
-        if (permissionList == null || permissionList.Count() <= 0)
+        if (systemMenuEntities == null || systemMenuEntities.Count() <= 0)
         {
             return;
         }
 
-        //只取未删除的数据
-        var childreDataList = permissionList.Where(p => p.Pid == rootNode.Id && p.IsDeleted == false);
+        var childreDataList = systemMenuEntities.Where(p => p.pid == rootNode.Id);
         if (childreDataList != null && childreDataList.Count() > 0)
         {
             rootNode.Child = new List<SystemMenu>();
@@ -122,18 +178,17 @@
             {
                 SystemMenu treeNode = new SystemMenu()
                 {
-                    Id = item.Id,
-                    Icon = item.Icon,
-                    Href = item.Href,
-                    Title = item.Title,
+                    Id = item.id,
+                    Icon = item.icon,
+                    Href = item.href,
+                    Title = item.title,
                 };
-
                 rootNode.Child.Add(treeNode);
             }
 
             foreach (var item in rootNode.Child)
             {
-                GetTreeNodeListByNoLockedDTOArray(permissionList, item);
+                GetTreeNodeListByNoLockedDTOArray(systemMenuEntities, item);
             }
         }
     }

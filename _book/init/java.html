@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>java示例(spring) · layuimini开发手册</title>
+        <title>Java示例(spring) · layuimini开发手册</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,6 +93,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
+    
+    <link rel="next" href="netcore.html" />
     
     
     <link rel="prev" href="golang.html" />
@@ -219,7 +221,20 @@
                 <a href="java.html">
             
                     
-                    java示例(spring)
+                    Java示例(spring)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="netcore.html">
+            
+                <a href="netcore.html">
+            
+                    
+                    ASP.NET CORE WebApi示例
             
                 </a>
             
@@ -695,7 +710,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >java示例(spring)</a>
+        <a href=".." >Java示例(spring)</a>
     </h1>
 </div>
 
@@ -718,34 +733,36 @@
 <blockquote>
 <p>&#x5BF9;&#x5E94;&#x63A7;&#x5236;&#x5668; <code>controllers/IndexController.java</code></p>
 </blockquote>
-<pre><code class="lang-java">
-<span class="hljs-meta">@RestController</span>
-<span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;login&quot;</span>)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginController</span> </span>{
-   <span class="hljs-meta">@Resource</span>
-    <span class="hljs-keyword">private</span> SysLoginService sysLoginService;
+<pre><code>
+@RestController
+@RequestMapping(&quot;login&quot;)
+public class LoginController {
+    @Resource
+    private SysMenuService sysMenuService;
 
-   <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/menu&quot;</span>)
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String, Object&gt; <span class="hljs-title">menu</span><span class="hljs-params">()</span> </span>{
-          <span class="hljs-keyword">return</span> sysLoginService.menu();
+    @GetMapping(&quot;/menu&quot;)
+    public Map&lt;String, Object&gt; menu() {
+        return sysMenuService.menu();
     }
-
 }
-</code></pre>
-<blockquote>
+</code></pre><blockquote>
 <p>&#x5BF9;&#x5E94;Service&#x903B;&#x8F91;&#x5C42;  <code>service/SysLoginServiceImpl.java</code></p>
 </blockquote>
-<pre><code> @Override
+<pre><code>@Service
+public class SysMenuServiceImpl implements SysMenuService {
+    @Resource
+    private SysMenuRepository sysMenuRepository;
+    @Override
     public Map&lt;String, Object&gt; menu() {
         Map&lt;String, Object&gt; map = new HashMap&lt;&gt;(16);
-        List&lt;SysMenu&gt;  menuList = sysMenuService.findAllByStatusOrderBySort(1);
+        List&lt;SysMenu&gt; menuList = sysMenuRepository.findAllByStatusOrderBySort(true);
         List&lt;MenuVo&gt; menuInfo = new ArrayList&lt;&gt;();
         for (SysMenu e : menuList) {
             MenuVo menuVO = new MenuVo();
-            menuVO.setId(e.getId());
-            menuVO.setPid(e.getParentId());
-            menuVO.setHref(e.getHref());
-            menuVO.setTitle(e.getTitle());
+            menuVO.setId(e.getKey().getId());
+            menuVO.setPid(e.getPid());
+            menuVO.setHref(e.getKey().getHref());
+            menuVO.setTitle(e.getKey().getTitle());
             menuVO.setIcon(e.getIcon());
             menuVO.setTarget(e.getTarget());
             menuInfo.add(menuVO);
@@ -753,13 +770,15 @@
         map.put(&quot;menuInfo&quot;, TreeUtil.toTree(menuInfo, 0L));
         map.put(&quot;homeInfo&quot;, &quot;{title: &apos;&#x9996;&#x9875;&apos;,href: &apos;/ruge-web-admin/page/welcome.html&apos;}}&quot;);
         map.put(&quot;logoInfo&quot;, &quot;{title: &apos;RUGE ADMIN&apos;,image: &apos;images/logo.png&apos;}&quot;);
-
         return map;
     }
+}
 </code></pre><blockquote>
-<p>TreeUtil<code>service/SysLoginServiceImpl.java</code></p>
+<p>TreeUtil<code>util/TreeUtil.java</code></p>
 </blockquote>
-<pre><code>public static List&lt;MenuVo&gt; toTree(List&lt;MenuVo&gt; treeList, Long pid) {
+<pre><code>public class TreeUtil {
+
+    public static List&lt;MenuVo&gt; toTree(List&lt;MenuVo&gt; treeList, Long pid) {
         List&lt;MenuVo&gt; retList = new ArrayList&lt;MenuVo&gt;();
         for (MenuVo parent : treeList) {
             if (pid.equals(parent.getPid())) {
@@ -779,57 +798,46 @@
         }
         return parent;
     }
-</code></pre><blockquote>
-<p>repository&#x5C42;<code>reposiroty/SysMenuRepository.java</code></p>
-</blockquote>
-<pre><code>public interface SysMenuRepository extends BaseRepository&lt;SysMenu, Long&gt; {
-    List&lt;SysMenu&gt; findAllByStatusOrderBySort(Integer status);
 }
 </code></pre><blockquote>
-<p> entity&#x5C42; <code>entity/MenuEntity.java</code></p>
+<p>repository&#x5C42; <code>reposiroty/SysMenuRepository.java</code></p>
 </blockquote>
-<pre><code>@Data
+<pre><code>public interface SysMenuRepository extends JpaRepository&lt;SysMenu, Long&gt; {
+    List&lt;SysMenu&gt; findAllByStatusOrderBySort(Boolean status);
+}
+</code></pre><blockquote>
+<p>entity&#x5C42; <code>entity/MenuEntity.java</code></p>
+</blockquote>
+<pre><code>@Getter
+@Setter
 @Embeddable
-public class MenuKey implements Serializable  {
-
+public class MenuKey implements Serializable {
     private Long id;
-
     private String title;
-
     private String href;
-
-}&#x3000;
-
+}
 
 
+
+@Getter
+@Setter
 @Entity
 @Table(name = &quot;system_menu&quot;)
-public class SysMenu extends MenuKey{
-&#x3000;&#x3000;&#x3000;&#x3000;// &#x590D;&#x5408;&#x4E3B;&#x952E;&#x8981;&#x7528;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;
+public class SysMenu implements Serializable {
+  // &#x590D;&#x5408;&#x4E3B;&#x952E;&#x8981;&#x7528;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;
     @EmbeddedId
-    private MenuKey id;
-
+    private MenuKey key;
     private Long pid;
-
     private String icon;
-
     private String target;
-
     private Integer sort;
-
     private Boolean status;
-
     private String remark;
-
      @CreatedDate
     private Date create_at;
-
      @CreatedDate
     private Date update_at;
-
-
     private Date delete_at;
-
 }
 
 
@@ -851,7 +859,7 @@ public class MenuVo {
     private List&lt;MenuVo&gt; child;
 }
 </code></pre><footer class="page-footer"><span class="copyright">&#xA9; zhongshaofa all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-03-12 15:38:48
+2020-03-12 16:08:18
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -896,10 +904,14 @@ public class MenuVo {
 
             
                 
-                <a href="golang.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Golang示例(beego)">
+                <a href="golang.html" class="navigation navigation-prev " aria-label="Previous page: Golang示例(beego)">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="netcore.html" class="navigation navigation-next " aria-label="Next page: ASP.NET CORE WebApi示例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -908,7 +920,7 @@ public class MenuVo {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"java示例(spring)","level":"1.2.5","depth":2,"next":{"title":"使用说明(V2版)","level":"1.3","depth":1,"ref":"","articles":[{"title":"iframe版","level":"1.3.1","depth":2,"path":"iframe-v2.md","ref":"iframe-v2.md","articles":[{"title":"更新说明","level":"1.3.1.1","depth":3,"anchor":"#更新说明","path":"iframe-v2.md","ref":"iframe-v2.md#更新说明","articles":[]},{"title":"基础参数一览表","level":"1.3.1.2","depth":3,"anchor":"#基础参数一览表","path":"iframe-v2.md","ref":"iframe-v2.md#基础参数一览表","articles":[]},{"title":"后台模板初始化","level":"1.3.1.3","depth":3,"anchor":"#后台模板初始化","path":"iframe-v2.md","ref":"iframe-v2.md#后台模板初始化","articles":[]},{"title":"初始化api接口返回的参数说明","level":"1.3.1.4","depth":3,"anchor":"#初始化api接口返回的参数说明","path":"iframe-v2.md","ref":"iframe-v2.md#初始化api接口返回的参数说明","articles":[]},{"title":"缓存清理接口返回的参数说明","level":"1.3.1.5","depth":3,"anchor":"#缓存清理接口返回的参数说明","path":"iframe-v2.md","ref":"iframe-v2.md#缓存清理接口返回的参数说明","articles":[]},{"title":"在页面中弹出新的Tab窗口","level":"1.3.1.6","depth":3,"anchor":"#在页面中弹出新的Tab窗口","path":"iframe-v2.md","ref":"iframe-v2.md#在页面中弹出新的Tab窗口","articles":[]},{"title":"在iframe页面中关闭当前Tab窗口","level":"1.3.1.7","depth":3,"anchor":"#在iframe页面中关闭当前Tab窗口","path":"iframe-v2.md","ref":"iframe-v2.md#在iframe页面中关闭当前Tab窗口","articles":[]},{"title":"后台主题方案配色","level":"1.3.1.8","depth":3,"anchor":"#后台主题方案配色","path":"iframe-v2.md","ref":"iframe-v2.md#后台主题方案配色","articles":[]},{"title":"常见问题","level":"1.3.1.9","depth":3,"anchor":"#常见问题","path":"iframe-v2.md","ref":"iframe-v2.md#常见问题","articles":[]}]},{"title":"单页版","level":"1.3.2","depth":2,"path":"onepage-v2.md","ref":"onepage-v2.md","articles":[{"title":"更新说明","level":"1.3.2.1","depth":3,"anchor":"#更新说明","path":"onepage-v2.md","ref":"onepage-v2.md#更新说明","articles":[]},{"title":"基础参数一览表","level":"1.3.2.2","depth":3,"anchor":"#基础参数一览表","path":"onepage-v2.md","ref":"onepage-v2.md#基础参数一览表","articles":[]},{"title":"后台模板初始化","level":"1.3.2.3","depth":3,"anchor":"#后台模板初始化","path":"onepage-v2.md","ref":"onepage-v2.md#后台模板初始化","articles":[]},{"title":"初始化api接口返回的参数说明","level":"1.3.2.4","depth":3,"anchor":"#初始化api接口返回的参数说明","path":"onepage-v2.md","ref":"onepage-v2.md#初始化api接口返回的参数说明","articles":[]},{"title":"缓存清理接口返回的参数说明","level":"1.3.2.5","depth":3,"anchor":"#缓存清理接口返回的参数说明","path":"onepage-v2.md","ref":"onepage-v2.md#缓存清理接口返回的参数说明","articles":[]},{"title":"在页面中打开新的页面","level":"1.3.2.6","depth":3,"anchor":"#在页面中打开新的页面","path":"onepage-v2.md","ref":"onepage-v2.md#在页面中打开新的页面","articles":[]},{"title":"在内容页面中返回主页","level":"1.3.2.7","depth":3,"anchor":"#在内容页面中返回主页","path":"onepage-v2.md","ref":"onepage-v2.md#在内容页面中返回主页","articles":[]},{"title":"后台主题方案配色","level":"1.3.2.8","depth":3,"anchor":"#后台主题方案配色","path":"onepage-v2.md","ref":"onepage-v2.md#后台主题方案配色","articles":[]},{"title":"常见问题","level":"1.3.2.9","depth":3,"anchor":"#常见问题","path":"onepage-v2.md","ref":"onepage-v2.md#常见问题","articles":[]}]}]},"previous":{"title":"Golang示例(beego)","level":"1.2.4","depth":2,"path":"init/golang.md","ref":"init/golang.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchor-nav-x","tbfed-pagefooter","search-plus","popup","highlight","image-captions","styled-blockquotes","expandable-chapters-interactive","hide-element","code","insert-logo","custom-favicon","github","github-buttons","donate","baidu-tongji","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy zhongshaofa","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/zhongshaofa/layuimini"},"livereload":{},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"5637e63b6bd6247c36cf245293f121f9"},"search":{},"styled-blockquotes":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"donate":{"alipay":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/ali_pay.png","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/wechat_pay.png","wechatText":"微信打赏"},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"multipleH1":false,"showLevel":false,"float":{"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"toolTipMode":"click"},"favicon":"images/favicon.ico","expandable-chapters-interactive":{},"anchor-nav-x":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"github-buttons":{"buttons":[{"user":"zhongshaofa","repo":"layuimini","type":"fork","count":true,"size":"small"},{"user":"zhongshaofa","repo":"layuimini","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 60px; min-height: 60px","url":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/logo_2.png"},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"zhongshaofa","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"index.html#fig1.1.1","level":"1.1","list_caption":"Figure: Image text","alt":"Image text","nro":1,"url":"./images/home.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Image text","attributes":{},"skip":false,"key":"1.1.1"}]},"title":"layuimini开发手册","language":"zh-hans","gitbook":"*","sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"description":"layuimini详细开发文档，最简单好用的后台模板。"},"file":{"path":"init/java.md","mtime":"2020-03-12T07:38:48.468Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-12T07:38:55.904Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java示例(spring)","level":"1.2.5","depth":2,"next":{"title":"ASP.NET CORE WebApi示例","level":"1.2.6","depth":2,"path":"init/netcore.md","ref":"init/netcore.md","articles":[]},"previous":{"title":"Golang示例(beego)","level":"1.2.4","depth":2,"path":"init/golang.md","ref":"init/golang.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchor-nav-x","tbfed-pagefooter","search-plus","popup","highlight","image-captions","styled-blockquotes","expandable-chapters-interactive","hide-element","code","insert-logo","custom-favicon","github","github-buttons","donate","baidu-tongji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy zhongshaofa","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/zhongshaofa/layuimini"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"5637e63b6bd6247c36cf245293f121f9"},"search":{},"styled-blockquotes":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"donate":{"alipay":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/ali_pay.png","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/wechat_pay.png","wechatText":"微信打赏"},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"multipleH1":false,"showLevel":false,"float":{"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"toolTipMode":"click"},"favicon":"images/favicon.ico","expandable-chapters-interactive":{},"anchor-nav-x":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"github-buttons":{"buttons":[{"user":"zhongshaofa","repo":"layuimini","type":"fork","count":true,"size":"small"},{"user":"zhongshaofa","repo":"layuimini","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 60px; min-height: 60px","url":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/logo_2.png"},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"zhongshaofa","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"index.html#fig1.1.1","level":"1.1","list_caption":"Figure: Image text","alt":"Image text","nro":1,"url":"./images/home.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Image text","attributes":{},"skip":false,"key":"1.1.1"}]},"title":"layuimini开发手册","language":"zh-hans","gitbook":"*","sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"description":"layuimini详细开发文档，最简单好用的后台模板。"},"file":{"path":"init/java.md","mtime":"2020-03-12T08:08:18.393Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-12T08:36:22.609Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -959,10 +971,6 @@ public class MenuVo {
     
         
         <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
