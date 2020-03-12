@@ -1,7 +1,7 @@
 # 目录大全
 
 * [简介](README.md)
-* [初始化接口示例(V2版)]()
+* [初始化接口后端示例(V2版)]()
   * [数据库结构示例](init/sql.md)
   * [PHP示例(Laravel)](init/laravel.md)
   * [PHP示例(ThinkPHP)](init/thinkphp.md)
