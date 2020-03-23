@@ -134,10 +134,10 @@
    }
 ```
   
-# 在页面中弹出新的Tab窗口
+# 在页面中弹出新的Tab窗口（标签）
    
-  * 如需在页面中弹出新的Tab窗口，请参考下方代码。（备注：需要引入miniTab.js文件）
-  * 参数说明（layuimini-content-href=：页面链接，data-title：标题）
+  * 如需在页面中弹出新的Tab窗口，请参考下方代码。（备注：需要引入`miniTab.js`文件）
+  * 参数说明（layuimini-content-href：页面链接，data-title：标题）
   * 调用方法进行监听：`miniTab.listen();`
   * 示例在`page/welcome-1.html`页面中有
   
@@ -152,6 +152,29 @@
             miniTab = layui.miniTab;
         
         miniTab.listen();
+        
+    });
+ ```
+
+# 在页面中弹出新的Tab窗口（JS方法）
+   
+  * 如需在页面中弹出新的Tab窗口，请参考下方代码。（备注：需要引入`miniTab.js`文件）
+  * 参数说明（href：页面链接，title：标题）
+  
+> 示例说明
+
+```js
+    
+    layui.use(['form','miniTab'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            miniTab = layui.miniTab;
+        
+        // 打开新的窗口 
+        miniTab.openNewTabByIframe({
+            href:"page/form.html",
+            title:"按钮示例",
+        });
         
     });
  ```
