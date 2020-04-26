@@ -74,8 +74,7 @@
             menuChildOpen: false,       // 是否默认展开菜单
         };
         miniAdmin.render(options);
-
-        layuimini.init('api/init.json');
+        
     });
     
 ```
