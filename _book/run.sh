@@ -1,4 +1,4 @@
-grep -rl 'src="../gitbook'  _book | xargs sed -i 's/src="..\/gitbook/src="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
-grep -rl 'href="../gitbook' _book | xargs sed -i 's/href="..\/gitbook/href="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
-grep -rl 'src="gitbook' _book | xargs sed -i 's/src="gitbook/src="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
-grep -rl 'href="gitbook' _book | xargs sed -i 's/href="gitbook/href="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
+grep -rl 'src="https://layuimini.oss-cn-shenzhen.aliyuncs.com/public/uploads/gitbook'  _book | xargs sed -i 's/src="..\/gitbook/src="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
+grep -rl 'href="https://layuimini.oss-cn-shenzhen.aliyuncs.com/public/uploads/gitbook' _book | xargs sed -i 's/href="..\/gitbook/href="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
+grep -rl 'src="https://layuimini.oss-cn-shenzhen.aliyuncs.com/public/uploads/gitbook' _book | xargs sed -i 's/src="https://layuimini.oss-cn-shenzhen.aliyuncs.com/public/uploads/gitbook/src="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
+grep -rl 'href="https://layuimini.oss-cn-shenzhen.aliyuncs.com/public/uploads/gitbook' _book | xargs sed -i 's/href="https://layuimini.oss-cn-shenzhen.aliyuncs.com/public/uploads/gitbook/href="https:\/\/layuimini.oss-cn-shenzhen.aliyuncs.com\/public\/uploads\/gitbook/g'
