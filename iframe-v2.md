@@ -208,30 +208,32 @@
   
 # 后台主题方案配色
   
- * 系统已内置12套主题配色，如果需要自定义皮肤配色，请在`miniTheme.bgColorConfig`方法内按相同格式添加。
+ * 系统已内置12套主题配色，如果需要自定义皮肤配色，请在`miniTheme.config`方法内按相同格式添加。
  
 > 示例说明
 
 ```js
     var bgColorConfig = [
                 {
-                    headerRight: '#1aa094',
-                    headerRightThis: '#197971',
-                    headerLogo: '#243346',
-                    menuLeft: '#2f4056',
-                    menuLeftThis: '#1aa094',
-                    menuLeftHover: '#3b3f4b',
-                    tabActive: '#1aa094',
+                    headerRightBg: '#ffffff',                           //头部右侧背景色
+                    headerRightBgThis: '#e4e4e4',                       //头部右侧选中背景色,
+                    headerRightColor: 'rgba(107, 107, 107, 0.7)',       //头部右侧字体颜色,
+                    headerRightChildColor: 'rgba(107, 107, 107, 0.7)',  //头部右侧下拉字体颜色,
+                    headerRightColorThis: '#565656',                    //头部右侧鼠标选中,
+                    headerRightNavMore: 'rgba(160, 160, 160, 0.7)',     //头部右侧更多下拉颜色,
+                    headerRightNavMoreBg: '#1E9FFF',                    //头部右侧更多下拉列表选中背景色,
+                    headerRightNavMoreColor: '#ffffff',                 //头部右侧更多下拉列表字体色,
+                    headerRightToolColor: '#565656',                    //头部缩放按钮样式,
+                    headerLogoBg: '#192027',                            //logo背景颜色,
+                    headerLogoColor: 'rgb(191, 187, 187)',              //logo字体颜色,
+                    leftMenuNavMore: 'rgb(191, 187, 187)',              //左侧菜单更多下拉样式,
+                    leftMenuBg: '#28333E',                              //左侧菜单背景,
+                    leftMenuBgThis: '#1E9FFF',                          //左侧菜单选中背景,
+                    leftMenuChildBg: '#0c0f13',                         //左侧菜单子菜单背景,
+                    leftMenuColor: 'rgb(191, 187, 187)',                //左侧菜单字体颜色,
+                    leftMenuColorThis: '#ffffff',                       //左侧菜单选中字体颜色,
+                    tabActiveColor: '#1e9fff',                          //tab选项卡选中颜色,
                 },
-                {
-                    headerRight: '#23262e',
-                    headerRightThis: '#0c0c0c',
-                    headerLogo: '#0c0c0c',
-                    menuLeft: '#23262e',
-                    menuLeftThis: '#737373',
-                    menuLeftHover: '#3b3f4b',
-                    tabActive: '#23262e',
-                }
     ];
 ```
  
