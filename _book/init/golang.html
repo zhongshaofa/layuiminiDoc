@@ -1,0 +1,1011 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Golang示例(beego) · layuimini开发手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="zhongshaofa">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-nav-x/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-styled-blockquotes/plugin-styled-blockquotes.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java.html" />
+    
+    
+    <link rel="prev" href="thinkphp.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"zhongshaofa","repo":"layuimini","type":"fork","count":true,"size":"small"},{"user":"zhongshaofa","repo":"layuimini","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    初始化接口后端示例(V2版)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="sql.html">
+            
+                <a href="sql.html">
+            
+                    
+                    数据库结构示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="laravel.html">
+            
+                <a href="laravel.html">
+            
+                    
+                    PHP示例(Laravel)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="thinkphp.html">
+            
+                <a href="thinkphp.html">
+            
+                    
+                    PHP示例(ThinkPHP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="golang.html">
+            
+                <a href="golang.html">
+            
+                    
+                    Golang示例(beego)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="java.html">
+            
+                <a href="java.html">
+            
+                    
+                    Java示例(spring)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="netcore.html">
+            
+                <a href="netcore.html">
+            
+                    
+                    ASP.NET CORE WebApi示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    使用说明(V2版)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html">
+            
+                    
+                    iframe版
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#更新说明">
+            
+                    
+                    更新说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#基础参数一览表">
+            
+                    
+                    基础参数一览表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#后台模板初始化">
+            
+                    
+                    后台模板初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#初始化api接口返回的参数说明">
+            
+                    
+                    初始化api接口返回的参数说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#缓存清理接口返回的参数说明">
+            
+                    
+                    缓存清理接口返回的参数说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#在页面中弹出新的Tab窗口（标签）">
+            
+                    
+                    在页面中弹出新的Tab窗口（标签）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#在页面中弹出新的Tab窗口（JS方法）">
+            
+                    
+                    在页面中弹出新的Tab窗口（JS方法）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#在iframe页面中关闭当前Tab窗口">
+            
+                    
+                    在iframe页面中关闭当前Tab窗口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#后台主题方案配色">
+            
+                    
+                    后台主题方案配色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="../iframe-v2.html">
+            
+                <a href="../iframe-v2.html#常见问题">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html">
+            
+                    
+                    单页版
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#更新说明">
+            
+                    
+                    更新说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#基础参数一览表">
+            
+                    
+                    基础参数一览表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#后台模板初始化">
+            
+                    
+                    后台模板初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#初始化api接口返回的参数说明">
+            
+                    
+                    初始化api接口返回的参数说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#缓存清理接口返回的参数说明">
+            
+                    
+                    缓存清理接口返回的参数说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#在页面中打开新的页面">
+            
+                    
+                    在页面中打开新的页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#在内容页面中返回主页">
+            
+                    
+                    在内容页面中返回主页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#后台主题方案配色">
+            
+                    
+                    后台主题方案配色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="../onepage-v2.html">
+            
+                <a href="../onepage-v2.html#常见问题">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    使用说明(V1版)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../iframe.html">
+            
+                <a href="../iframe.html">
+            
+                    
+                    iframe版
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../iframe.html">
+            
+                <a href="../iframe.html#默认配置说明">
+            
+                    
+                    更新说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../iframe.html">
+            
+                <a href="../iframe.html#后台模板初始化">
+            
+                    
+                    后台模板初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../iframe.html">
+            
+                <a href="../iframe.html#初始化api地址返回的参数说明">
+            
+                    
+                    初始化api地址返回的参数说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../iframe.html">
+            
+                <a href="../iframe.html#在页面中弹出新的Tab窗口">
+            
+                    
+                    在页面中弹出新的Tab窗口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../iframe.html">
+            
+                <a href="../iframe.html#在iframe页面中关闭当前Tab窗口">
+            
+                    
+                    在iframe页面中关闭当前Tab窗口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../iframe.html">
+            
+                <a href="../iframe.html#后台主题方案配色">
+            
+                    
+                    后台主题方案配色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" data-path="../iframe.html">
+            
+                <a href="../iframe.html#常见问题">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../onepage.html">
+            
+                <a href="../onepage.html">
+            
+                    
+                    单页版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Golang示例(beego)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-minus-circle"></i><ul><li><span class="title-icon "></span><a href="#golang&#x52A8;&#x6001;&#x751F;&#x6210;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#xFF08;beego&#x6846;&#x67B6;&#xFF09;"><b></b>Golang&#x52A8;&#x6001;&#x751F;&#x6210;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#xFF08;Beego&#x6846;&#x67B6;&#xFF09;</a></li></ul></div><a href="#golang&#x52A8;&#x6001;&#x751F;&#x6210;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#xFF08;beego&#x6846;&#x67B6;&#xFF09;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="golang&#x52A8;&#x6001;&#x751F;&#x6210;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#xFF08;beego&#x6846;&#x67B6;&#xFF09;"><a name="golang&#x52A8;&#x6001;&#x751F;&#x6210;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#xFF08;beego&#x6846;&#x67B6;&#xFF09;" class="anchor-navigation-ex-anchor" href="#golang&#x52A8;&#x6001;&#x751F;&#x6210;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#xFF08;beego&#x6846;&#x67B6;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>Golang&#x52A8;&#x6001;&#x751F;&#x6210;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#xFF08;Beego&#x6846;&#x67B6;&#xFF09;</h1>
+<blockquote>
+<p>&#x5BF9;&#x5E94;&#x63A7;&#x5236;&#x5668; <code>controllers/IndexController.go</code></p>
+</blockquote>
+<pre><code class="lang-golang"><span class="hljs-keyword">package</span> controllers
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;BeegoAdmin/models&quot;</span>
+    <span class="hljs-string">&quot;github.com/astaxie/beego&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> IndexController <span class="hljs-keyword">struct</span> {
+    beego.Controller
+}
+
+<span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x540E;&#x53F0;&#x6846;&#x67B6;&#x63A5;&#x53E3;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *IndexController)</span> <span class="hljs-title">SystemInit</span><span class="hljs-params">()</span></span> {
+    systemInit := <span class="hljs-built_in">new</span>(models.SystemMenu).GetSystemInit()
+    c.Data[<span class="hljs-string">&quot;json&quot;</span>] = systemInit
+    c.ServeJSON()
+}
+</code></pre>
+<blockquote>
+<p>&#x5BF9;&#x5E94;Model <code>models/SystemMenu.go</code></p>
+</blockquote>
+<pre><code class="lang-golang"><span class="hljs-keyword">package</span> models
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;github.com/astaxie/beego/orm&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-comment">// &#x83DC;&#x5355;</span>
+<span class="hljs-keyword">type</span> SystemMenu <span class="hljs-keyword">struct</span> {
+    Id       <span class="hljs-keyword">int</span>       <span class="hljs-string">`json:&quot;id&quot;`</span>
+    Pid      <span class="hljs-keyword">int</span>       <span class="hljs-string">`json:&quot;pid&quot;`</span>
+    Title    <span class="hljs-keyword">string</span>    <span class="hljs-string">`json:&quot;title&quot;`</span>
+    Icon     <span class="hljs-keyword">string</span>    <span class="hljs-string">`json:&quot;icon&quot;`</span>
+    Href     <span class="hljs-keyword">string</span>    <span class="hljs-string">`json:&quot;href&quot;`</span>
+    Sort     <span class="hljs-keyword">string</span>    <span class="hljs-string">`json:&quot;sort&quot;`</span>
+    Target   <span class="hljs-keyword">string</span>    <span class="hljs-string">`json:&quot;target&quot;`</span>
+    Remark   <span class="hljs-keyword">string</span>    <span class="hljs-string">`json:&quot;remark&quot;`</span>
+    Status   <span class="hljs-keyword">int</span>       <span class="hljs-string">`json:&quot;status&quot;`</span>
+    CreateAt time.Time <span class="hljs-string">`json:&quot;create_at&quot;;orm:&quot;auto_now;type(datetime)&quot;`</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m *SystemMenu)</span> <span class="hljs-title">TableName</span><span class="hljs-params">()</span> <span class="hljs-title">string</span></span> {
+    <span class="hljs-keyword">return</span> TableName(<span class="hljs-string">&quot;system_menu&quot;</span>)
+}
+
+<span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x7ED3;&#x6784;&#x4F53;</span>
+<span class="hljs-keyword">type</span> SystemInit <span class="hljs-keyword">struct</span> {
+    HomeInfo <span class="hljs-keyword">struct</span> {
+        Title <span class="hljs-keyword">string</span> <span class="hljs-string">`json:&quot;title&quot;`</span>
+        Href  <span class="hljs-keyword">string</span> <span class="hljs-string">`json:&quot;href&quot;`</span>
+    } <span class="hljs-string">`json:&quot;homeInfo&quot;`</span>
+    LogoInfo <span class="hljs-keyword">struct</span> {
+        Title <span class="hljs-keyword">string</span> <span class="hljs-string">`json:&quot;title&quot;`</span>
+        Image <span class="hljs-keyword">string</span> <span class="hljs-string">`json:&quot;image&quot;`</span>
+    } <span class="hljs-string">`json:&quot;logoInfo&quot;`</span>
+    MenuInfo []*MenuTreeList <span class="hljs-string">`json:&quot;menuInfo&quot;`</span>
+}
+
+<span class="hljs-comment">// &#x83DC;&#x5355;&#x7ED3;&#x6784;&#x4F53;</span>
+<span class="hljs-keyword">type</span> MenuTreeList <span class="hljs-keyword">struct</span> {
+    Id     <span class="hljs-keyword">int</span>             <span class="hljs-string">`json:&quot;id&quot;`</span>
+    Pid    <span class="hljs-keyword">int</span>             <span class="hljs-string">`json:&quot;pid&quot;`</span>
+    Title  <span class="hljs-keyword">string</span>          <span class="hljs-string">`json:&quot;title&quot;`</span>
+    Icon   <span class="hljs-keyword">string</span>          <span class="hljs-string">`json:&quot;icon&quot;`</span>
+    Href   <span class="hljs-keyword">string</span>          <span class="hljs-string">`json:&quot;href&quot;`</span>
+    Target <span class="hljs-keyword">string</span>          <span class="hljs-string">`json:&quot;target&quot;`</span>
+    Remark <span class="hljs-keyword">string</span>          <span class="hljs-string">`json:&quot;remark&quot;`</span>
+    Child  []*MenuTreeList <span class="hljs-string">`json:&quot;child&quot;`</span>
+}
+
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m *SystemMenu)</span> <span class="hljs-title">GetSystemInit</span><span class="hljs-params">()</span> <span class="hljs-title">SystemInit</span></span> {
+    <span class="hljs-keyword">var</span> systemInit SystemInit
+
+    <span class="hljs-comment">// &#x9996;&#x9875;</span>
+    systemInit.HomeInfo.Title = <span class="hljs-string">&quot;&#x9996;&#x9875;&quot;</span>
+    systemInit.HomeInfo.Href = <span class="hljs-string">&quot;page/welcome-1.html?t=1&quot;</span>
+
+    <span class="hljs-comment">// logo</span>
+    systemInit.LogoInfo.Title = <span class="hljs-string">&quot;LAYUI MINI&quot;</span>
+    systemInit.LogoInfo.Image = <span class="hljs-string">&quot;images/logo.png&quot;</span>
+
+    <span class="hljs-comment">// &#x83DC;&#x5355;</span>
+    systemInit.MenuInfo = m.GetMenuList()
+
+    <span class="hljs-keyword">return</span> systemInit
+}
+
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x83DC;&#x5355;&#x5217;&#x8868;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m *SystemMenu)</span> <span class="hljs-title">GetMenuList</span><span class="hljs-params">()</span> []*<span class="hljs-title">MenuTreeList</span></span> {
+    o := orm.NewOrm()
+    <span class="hljs-keyword">var</span> menuList []SystemMenu
+    _, _ = o.QueryTable(m.TableName()).Filter(<span class="hljs-string">&quot;status&quot;</span>,<span class="hljs-number">1</span>).OrderBy(<span class="hljs-string">&quot;-sort&quot;</span>).All(&amp;menuList)
+    <span class="hljs-keyword">return</span> m.buildMenuChild(<span class="hljs-number">0</span>, menuList)
+}
+
+<span class="hljs-comment">//&#x9012;&#x5F52;&#x83B7;&#x53D6;&#x5B50;&#x83DC;&#x5355;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m *SystemMenu)</span> <span class="hljs-title">buildMenuChild</span><span class="hljs-params">(pid <span class="hljs-keyword">int</span>, menuList []SystemMenu)</span> []*<span class="hljs-title">MenuTreeList</span></span> {
+    <span class="hljs-keyword">var</span> treeList []*MenuTreeList
+    <span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> menuList {
+        <span class="hljs-keyword">if</span> pid == v.Pid {
+            node := &amp;MenuTreeList{
+                Id:     v.Id,
+                Title:  v.Title,
+                Icon:   v.Icon,
+                Href:   v.Href,
+                Target: v.Target,
+                Pid:    v.Pid,
+            }
+            child := v.buildMenuChild(v.Id, menuList)
+            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(child) != <span class="hljs-number">0</span> {
+                node.Child = child
+            }
+            <span class="hljs-comment">// todo &#x540E;&#x7EED;&#x6B64;&#x5904;&#x52A0;&#x4E0A;&#x7528;&#x6237;&#x7684;&#x6743;&#x9650;&#x5224;&#x65AD;</span>
+            treeList = <span class="hljs-built_in">append</span>(treeList, node)
+        }
+    }
+    <span class="hljs-keyword">return</span> treeList
+}
+</code></pre>
+<footer class="page-footer"><span class="copyright">&#xA9; zhongshaofa all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-04-06 22:10:57
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="thinkphp.html" class="navigation navigation-prev " aria-label="Previous page: PHP示例(ThinkPHP)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="java.html" class="navigation navigation-next " aria-label="Next page: Java示例(spring)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Golang示例(beego)","level":"1.2.4","depth":2,"next":{"title":"Java示例(spring)","level":"1.2.5","depth":2,"path":"init/java.md","ref":"init/java.md","articles":[]},"previous":{"title":"PHP示例(ThinkPHP)","level":"1.2.3","depth":2,"path":"init/thinkphp.md","ref":"init/thinkphp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchor-nav-x","tbfed-pagefooter","search-plus","popup","highlight","image-captions","styled-blockquotes","expandable-chapters-interactive","hide-element","code","insert-logo","custom-favicon","github","github-buttons","donate","baidu-tongji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy zhongshaofa","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/zhongshaofa/layuimini"},"baidu-tongji":{"url":"https://hm.baidu.com/hm.js","token":"5637e63b6bd6247c36cf245293f121f9"},"search":{},"styled-blockquotes":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"donate":{"alipay":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/ali_pay.png","alipayText":"支付宝打赏","button":"打赏","title":"","wechat":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/wechat_pay.png","wechatText":"微信打赏"},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"multipleH1":false,"showLevel":false,"float":{"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"toolTipMode":"click"},"favicon":"images/favicon.ico","expandable-chapters-interactive":{},"anchor-nav-x":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"github-buttons":{"buttons":[{"user":"zhongshaofa","repo":"layuimini","type":"fork","count":true,"size":"small"},{"user":"zhongshaofa","repo":"layuimini","type":"star","count":true,"size":"small"}]},"custom-favicon":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 60px; min-height: 60px","url":"https://layuimini.oss-cn-shenzhen.aliyuncs.com/logo_2.png"},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"zhongshaofa","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"index.html#fig1.1.1","level":"1.1","list_caption":"Figure: Image text","alt":"Image text","nro":1,"url":"./images/home.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Image text","attributes":{},"skip":false,"key":"1.1.1"}]},"title":"layuimini开发手册","language":"zh-hans","gitbook":"*","sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"description":"layuimini详细开发文档，最简单好用的后台模板。"},"file":{"path":"init/golang.md","mtime":"2021-04-06T14:10:57.911Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-06T14:17:05.226Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchor-nav-x/lib/handler.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
